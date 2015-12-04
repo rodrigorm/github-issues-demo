@@ -6,12 +6,11 @@ import { Link }               from 'react-router';
 import Icon                   from 'react-fa';
 
 const mapStateToProps = (state, props) => ({
-  username: props.routeParams.username,
-  model : state.user
+  model: state.user
 });
 export class UserView extends React.Component {
   static propTypes = {
-    model    : React.PropTypes.object
+    model: React.PropTypes.object
   }
 
   render () {

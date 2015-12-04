@@ -85,12 +85,12 @@ header {
     border-bottom: 1px solid $grayMedium;
   }
 
-  i.fa-github {
+  .fa-github {
     font-size: 40px;
     color: black;
   }
 
-  i.fa-github.loading {
+  .fa-github.loading {
     animation: pulse 0.5s ease infinite alternate;
   }
 
@@ -290,7 +290,7 @@ header {
       background: $grayLight;
     }
 
-    i.fa-bug {
+    .fa-bug {
       float: left;
       margin-top: 2px;
       margin-left: -24px;

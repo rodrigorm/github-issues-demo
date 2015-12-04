@@ -35,6 +35,8 @@ export class UserView extends React.Component {
 
   render () {
     const { model } = this.props;
+    if (!model.id) return (<div />);
+
     return (
       <div>
         <div className="user-header">

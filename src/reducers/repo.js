@@ -1,8 +1,8 @@
 import { createReducer }     from '../utils';
-import { RECEIVE_USER } from 'constants/user';
+import { RECEIVE_REPO } from 'constants/repo';
 
 const initialState = {};
 
 export default createReducer(initialState, {
-  [RECEIVE_USER]: (state, payload) => (payload)
+  [RECEIVE_REPO]: (state, payload) => (payload)
 });
