@@ -19,14 +19,14 @@ export class UserView extends React.Component {
     if (!model.id) return (<div />);
 
     return (
-      <ul className="repo-issues">
+      <ul className='repo-issues'>
         {model.issues.map(issue => (
         <li key={issue.number}>
-          <Icon name="bug" />
+          <Icon name='bug' />
           {' '}
-          <div className="comments"><Icon name="comment-o"/> {issue.comments}</div>
+          <div className='comments'><Icon name='comment-o'/> {issue.comments}</div>
           <h3><Link to={'/' + model.owner.login + '/' + model.name + '/' + issue.number}>{issue.title}</Link></h3>
-          <p className="details">
+          <p className='details'>
             #{issue.number} opened <MomentFromNow date={issue.created_at} /> by <Link to={'/' + issue.user.login}>{issue.user.login}</Link>
           </p>
         </li>

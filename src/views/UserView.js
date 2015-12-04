@@ -2,7 +2,6 @@ import React                  from 'react';
 import { bindActionCreators } from 'redux';
 import { connect }            from 'react-redux';
 import userActions            from 'actions/user';
-import { Link }               from 'react-router';
 import Icon                   from 'react-fa';
 
 // We define mapStateToProps and mapDispatchToProps where we'd normally use
@@ -19,15 +18,17 @@ const mapDispatchToProps = (dispatch) => ({
 });
 export class UserView extends React.Component {
   static propTypes = {
-    actions  : React.PropTypes.object,
-    model    : React.PropTypes.object
+    actions  : React.PropTypes.object.isRequired,
+    username : React.PropTypes.string.isRequired,
+    model    : React.PropTypes.object.isRequired,
+    children : React.PropTypes.element
   }
 
-  componentWillMount() {
+  componentWillMount () {
     this.props.actions.fetch(this.props.username);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (nextProps.username !== this.props.username) {
       this.props.actions.fetch(nextProps.username);
     }
@@ -39,13 +40,13 @@ export class UserView extends React.Component {
 
     return (
       <div>
-        <div className="user-header">
-          <img className="avatar" height="120" src={model.avatar_url + '&s=240'} width="120" />
+        <div className='user-header'>
+          <img className='avatar' height='120' src={model.avatar_url + '&s=240'} width='120' />
           <h1>{model.name}</h1>
-          <ul className="user-details">
+          <ul className='user-details'>
             {model.company ?
             <li>
-              <Icon name="briefcase" />
+              <Icon name='briefcase' />
               {' '}
               {model.company}
             </li>
@@ -53,7 +54,7 @@ export class UserView extends React.Component {
 
             {model.location ?
             <li>
-              <Icon name="globe" />
+              <Icon name='globe' />
               {' '}
               {model.location}
             </li>
@@ -61,14 +62,14 @@ export class UserView extends React.Component {
 
             {model.blog ?
             <li>
-              <Icon name="link" />
+              <Icon name='link' />
               {' '}
-              <a href="{model.blog}" target="_blank">{model.blog}</a>
+              <a href='{model.blog}' target='_blank'>{model.blog}</a>
             </li>
             : null}
           </ul>
-          <ul className="user-tabs">
-            <li className="active"><Icon name="book" /> Repositories <span className="badge">{model.public_repos || 0}</span></li>
+          <ul className='user-tabs'>
+            <li className='active'><Icon name='book' /> Repositories <span className='badge'>{model.public_repos || 0}</span></li>
           </ul>
         </div>
         {this.props.children}

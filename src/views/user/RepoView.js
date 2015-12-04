@@ -35,13 +35,13 @@ export class RepoView extends React.Component {
 
     return (
       <div>
-        <div className="repo-header">
+        <div className='repo-header'>
           <h1>
-            <Icon name="book" />
+            <Icon name='book' />
             {' '}
-            <span className="user"><Link to={'/' + model.owner.login}>{model.owner.login}</Link></span>
+            <span className='user'><Link to={'/' + model.owner.login}>{model.owner.login}</Link></span>
             {' '}/{' '}
-            <span className="repo"><Link to={'/' + model.owner.login + '/' + model.name}>{model.name}</Link></span>
+            <span className='repo'><Link to={'/' + model.owner.login + '/' + model.name}>{model.name}</Link></span>
           </h1>
         </div>
         {this.props.children}

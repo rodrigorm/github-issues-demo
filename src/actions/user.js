@@ -4,7 +4,7 @@ const receive = (user) => ({ type : RECEIVE_USER, payload: user });
 
 export default {
   receive,
-  fetch: (login) => ((dispatch, getState) => {
+  fetch: (login) => (dispatch) => {
     dispatch(receive({}));
 
     $.getJSON(`https://api.github.com/users/${login}?access_token=190705ee0dec7d5edb6fc11cae75623d817cc07f`)
@@ -13,5 +13,5 @@ export default {
         dispatch(receive({...user, repos}));
       });
     });
-  })
+  }
 };

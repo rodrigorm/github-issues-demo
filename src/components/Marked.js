@@ -16,7 +16,7 @@ const defaultOptions = {
   )
 };
 
-export default function(props) {
+const Marked = (props) => {
   const { source } = props;
   const options = {
     ...defaultOptions,
@@ -26,4 +26,10 @@ export default function(props) {
   return (
     <div dangerouslySetInnerHTML={{__html: parsed}} />
   );
-}
+};
+
+Marked.propTypes = {
+  source : React.PropTypes.string.isRequired
+};
+
+export default Marked;

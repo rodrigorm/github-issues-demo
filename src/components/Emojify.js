@@ -8,11 +8,15 @@ emojify.setConfig({
 });
 
 export default class UserView extends React.Component {
-  componentDidMount() {
+  static propTypes = {
+    children : React.PropTypes.element
+  }
+
+  componentDidMount () {
     emojify.run(ReactDOM.findDOMNode(this));
   }
 
-  render() {
+  render () {
     return (
       this.props.children
     );

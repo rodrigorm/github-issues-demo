@@ -38,16 +38,16 @@ export class IssueView extends React.Component {
 
     return (
       <div>
-        <div className="issue-header">
-          <h2>{model.title} <span className="number">#{model.number}</span></h2>
-          <p className="details">
-            <span className="user"><Link to={'/' + model.user.login}>{model.user.login}</Link></span>
+        <div className='issue-header'>
+          <h2>{model.title} <span className='number'>#{model.number}</span></h2>
+          <p className='details'>
+            <span className='user'><Link to={'/' + model.user.login}>{model.user.login}</Link></span>
             {' '}
             opened this issue <MomentFromNow date={model.created_at} />
           </p>
         </div>
 
-        <div className="issue-comments">
+        <div className='issue-comments'>
           <IssueComment comment={model} />
 
           {model.comments.map(comment => (

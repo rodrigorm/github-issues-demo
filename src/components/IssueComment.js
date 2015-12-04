@@ -4,21 +4,21 @@ import MomentFromNow from 'components/MomentFromNow';
 import Marked        from 'components/Marked';
 import Emojify       from 'components/Emojify';
 
-export default function(props) {
+const IssueComment = (props) => {
   const { comment } = props;
   return (
     <div>
       <Link to={'/' + comment.user.login}>
-        <img className="avatar" height="48" width="48" src={comment.user.avatar_url + '&s=96'} />
+        <img className='avatar' height='48' width='48' src={comment.user.avatar_url + '&s=96'} />
       </Link>
 
-      <div className="comment">
-        <p className="comment-header">
-          <span className="user"><Link to={'/' + comment.user.login}>{comment.user.login}</Link></span>
+      <div className='comment'>
+        <p className='comment-header'>
+          <span className='user'><Link to={'/' + comment.user.login}>{comment.user.login}</Link></span>
           {' '}
           commented <MomentFromNow date={comment.created_at} />
         </p>
-        <div className="comment-body">
+        <div className='comment-body'>
           <Emojify>
             <Marked source={comment.body} />
           </Emojify>
@@ -26,4 +26,10 @@ export default function(props) {
       </div>
     </div>
   );
-}
+};
+
+IssueComment.propTypes = {
+  comment : React.PropTypes.object.isRequired
+};
+
+export default IssueComment;

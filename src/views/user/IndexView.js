@@ -19,20 +19,20 @@ export class UserView extends React.Component {
     if (!model.id) return (<div />);
 
     return (
-      <ul className="user-repos">
+      <ul className='user-repos'>
         {model.repos.map(repo => (
         <li key={repo.name}>
-          <ul className="repo-info">
+          <ul className='repo-info'>
             {repo.language ? <li>{repo.language}</li> : null}
-            <li><Icon name="star" /> {repo.stargazers_count}</li>
-            <li><Icon name="code-fork" /> {repo.forks_count}</li>
-            <li><Icon name="bug" /> {repo.open_issues_count}</li>
+            <li><Icon name='star' /> {repo.stargazers_count}</li>
+            <li><Icon name='code-fork' /> {repo.forks_count}</li>
+            <li><Icon name='bug' /> {repo.open_issues_count}</li>
           </ul>
           <h3><Link to={'/' + model.login + '/' + repo.name}>{repo.name}</Link></h3>
           {repo.description ?
-            <p className="description">The source for {repo.description}</p>
+            <p className='description'>The source for {repo.description}</p>
           : null}
-          <p className="updated">Updated <MomentFromNow date={repo.pushed_at} /></p>
+          <p className='updated'>Updated <MomentFromNow date={repo.pushed_at} /></p>
         </li>
       ))}
       </ul>
