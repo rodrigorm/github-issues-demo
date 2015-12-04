@@ -1,6 +1,7 @@
 import React         from 'react';
 import { Link }      from 'react-router';
 import MomentFromNow from 'components/MomentFromNow';
+import Marked        from 'components/Marked';
 
 export default function(props) {
   const { comment } = props;
@@ -17,7 +18,7 @@ export default function(props) {
           commented <MomentFromNow date={comment.created_at} />
         </p>
         <div className="comment-body">
-          {comment.body}
+          <Marked source={comment.body} />
         </div>
       </div>
     </div>
