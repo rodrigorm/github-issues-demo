@@ -4,6 +4,7 @@ import { connect }            from 'react-redux';
 import userActions            from 'actions/user';
 import { Link }               from 'react-router';
 import Icon                   from 'react-fa';
+import MomentFromNow          from 'components/MomentFromNow';
 
 const mapStateToProps = (state, props) => ({
   model: state.user
@@ -15,6 +16,8 @@ export class UserView extends React.Component {
 
   render () {
     const { model } = this.props;
+    if (!model.id) return (<div />);
+
     return (
       <ul className="user-repos">
         {model.repos.map(repo => (
@@ -29,7 +32,7 @@ export class UserView extends React.Component {
           {repo.description ?
             <p className="description">The source for {repo.description}</p>
           : null}
-          <p className="updated">Updated {repo.pushed_at}</p>
+          <p className="updated">Updated <MomentFromNow date={repo.pushed_at} /></p>
         </li>
       ))}
       </ul>

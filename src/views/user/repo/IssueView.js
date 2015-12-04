@@ -5,6 +5,7 @@ import issueActions           from 'actions/issue';
 import { Link }               from 'react-router';
 import Icon                   from 'react-fa';
 import IssueComment           from 'components/IssueComment';
+import MomentFromNow          from 'components/MomentFromNow';
 
 const mapStateToProps = (state, props) => ({
   username: props.params.username,
@@ -41,7 +42,8 @@ export class IssueView extends React.Component {
           <h2>{model.title} <span className="number">#{model.number}</span></h2>
           <p className="details">
             <span className="user"><Link to={'/' + model.user.login}>{model.user.login}</Link></span>
-            opened this issue {model.created_at}
+            {' '}
+            opened this issue <MomentFromNow date={model.created_at} />
           </p>
         </div>
 

@@ -1,5 +1,6 @@
-import React                  from 'react';
-import { Link }               from 'react-router';
+import React         from 'react';
+import { Link }      from 'react-router';
+import MomentFromNow from 'components/MomentFromNow';
 
 export default function(props) {
   const { comment } = props;
@@ -13,7 +14,7 @@ export default function(props) {
         <p className="comment-header">
           <span className="user"><Link to={'/' + comment.user.login}>{comment.user.login}</Link></span>
           {' '}
-          commented {comment.created_at}
+          commented <MomentFromNow date={comment.created_at} />
         </p>
         <div className="comment-body">
           {comment.body}
