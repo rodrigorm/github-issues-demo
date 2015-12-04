@@ -2,6 +2,7 @@ import React         from 'react';
 import { Link }      from 'react-router';
 import MomentFromNow from 'components/MomentFromNow';
 import Marked        from 'components/Marked';
+import Emojify       from 'components/Emojify';
 
 export default function(props) {
   const { comment } = props;
@@ -18,7 +19,9 @@ export default function(props) {
           commented <MomentFromNow date={comment.created_at} />
         </p>
         <div className="comment-body">
-          <Marked source={comment.body} />
+          <Emojify>
+            <Marked source={comment.body} />
+          </Emojify>
         </div>
       </div>
     </div>
