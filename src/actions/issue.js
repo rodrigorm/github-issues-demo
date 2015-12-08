@@ -7,9 +7,9 @@ export default {
   fetch: (login, repoName, issueNumber) => (dispatch) => {
     dispatch(receive({}));
 
-    $.getJSON(`https://api.github.com/repos/${login}/${repoName}/issues/${issueNumber}?access_token=190705ee0dec7d5edb6fc11cae75623d817cc07f`)
+    $.getJSON(`https://api.github.com/repos/${login}/${repoName}/issues/${issueNumber}`)
     .then(issue => {
-      $.getJSON(`https://api.github.com/repos/${login}/${repoName}/issues/${issue.number}/comments?access_token=190705ee0dec7d5edb6fc11cae75623d817cc07f`).then(comments => {
+      $.getJSON(`https://api.github.com/repos/${login}/${repoName}/issues/${issue.number}/comments`).then(comments => {
         dispatch(receive({...issue, comments}));
       });
     });
